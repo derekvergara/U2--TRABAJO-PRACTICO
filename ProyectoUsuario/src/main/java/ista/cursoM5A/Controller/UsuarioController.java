@@ -23,24 +23,20 @@ public class UsuarioController {
 	private IUsuarioService Servi;
 
 	@GetMapping("/listado")
-	public Object listadousuario() {
+	public Object ListarUsuarios() {
 		return Servi.ListaUsuarios();
 	}
 
-	// buscar por id
 	@GetMapping("/listadoID/{id}")
 	public Usuario show(@PathVariable("id") Long id) {
 		return Servi.BuscarUsuarioId(id);
 	}
 
-	// guardar
 	@PostMapping("/IngresarUsuario")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario create(@RequestBody Usuario usuario) {
 		return Servi.GuardarUsuario(usuario);
 	}
-
-	// editar
 
 	@PutMapping("/editarUsuario/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
